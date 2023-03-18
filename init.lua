@@ -14,13 +14,26 @@ end
 
 -- Llamar a la función para verificar si Packer está instalado
 require_packer()
-require("mason").setup()
 require("config")
 require('nvim-tree').setup()
 require('plugins.dashboard')
--- Excluir indentLine del dashboard de AlphaVim
+--configuracion de los servidores de mason de manera automatica
+require("mason").setup()
+    require("mason-lspconfig").setup()
 
-
+    require("mason-lspconfig").setup_handlers {
+        -- The first entry (without a key) will be the default handler
+        -- and will be called for each installed server that doesn't have
+        -- a dedicated handler.
+        function (server_name) -- default handler (optional)
+            require("lspconfig")[server_name].setup {}
+        end,
+        -- Next, you can provide a dedicated handler for specific servers.
+        -- For example, a handler override for the `rust_analyzer`:
+        ["rust_analyzer"] = function ()
+            require("rust-tools").setup {}
+        end
+    }
 -- Instala packer
 -- Configura packer
 return require('packer').startup(function()
