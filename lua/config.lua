@@ -36,8 +36,10 @@ vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
 
---configuracion de galaxyline
--- Define un grupo de resaltado para el texto de Galaxyline
-vim.cmd [[highlight GalaxyLineSilver guifg=#C0C0C0]]
-
+-- Configuración de indentLine
+vim.g.indentLine_enabled = 0
+vim.g.indentLine_setColors = 0
+if vim.fn.executable('clangd') == 1 then
+  require('lspconfig').clangd.setup{}
+end
 

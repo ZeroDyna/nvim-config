@@ -1,3 +1,8 @@
+-- Agrega la ruta de la carpeta de configuración a package.path y package.cpath
+package.path = package.path .. ";C:\\Users\\Renato\\AppData\\Local\\nvim\\?.lua"
+package.cpath = package.cpath .. ";C:\\Users\\Renato\\AppData\\Local\\nvim\\?.dll"
+
+
 -- Función para verificar si Packer está instalado
 local function require_packer()
   local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -13,6 +18,9 @@ require("mason").setup()
 require("config")
 require('nvim-tree').setup()
 require('plugins.dashboard')
+-- Excluir indentLine del dashboard de AlphaVim
+
+
 -- Instala packer
 -- Configura packer
 return require('packer').startup(function()
@@ -38,9 +46,7 @@ use 'lervag/vimtex'
 
 use {'rcarriga/nvim-notify'}
 
-use {"williamboman/mason.nvim"}
 
-use {'neovim/nvim-lspconfig'}
 
 use {
     'goolord/alpha-nvim',
@@ -66,6 +72,15 @@ use({
     require("persistence").setup()
   end,
 })
+use {"lukas-reineke/indent-blankline.nvim"}
+use {'lewis6991/gitsigns.nvim'}
+use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+}
+use {'mfussenegger/nvim-dap'}
+use { 'mhartington/formatter.nvim' }
+use {'mfussenegger/nvim-lint'}
 end)
-
 

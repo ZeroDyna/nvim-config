@@ -9,7 +9,7 @@ dashboard.section.header.val = {
 "___  __ \\__(_)_____/ /_____________ |  / /__(_)______ ___  ",
 "__  /_/ /_  /_  __  /_  _ \\_  ___/_ | / /__  /__  __ `__ \\ ",
 "_  _, _/_  / / /_/ / /  __/  /   __ |/ / _  / _  / / / / / ",
-"/_/ |_| /_/  \\__,_/  \\___//_/    _____/  /_/  /_/ /_/ /_/  ",                                                         
+"/_/ |_| /_/  \\__,_/  \\___//_/    _____/  /_/  /_/ /_/ /_/  ",                                                    "														",
 "   ..           .:.                  ,:.           ..",
 "   ;o'         .ox.                  ;O:         .co.",
 "   .x0o.       ,0O,                  cXx.       ;kKc ",
@@ -28,10 +28,6 @@ dashboard.section.header.val = {
 "                    .o000XXXXXKO0k,                  ",
 "                      ,,':lolc'.,.                   ",
 }
-vim.cmd("highlight DashboardHeader guifg=#ffcc00")
-vim.cmd("highlight DashboardCenter guifg=#b3b3b3")
-vim.cmd("highlight DashboardShortcut guifg=#b3b3b3")
-vim.cmd("highlight DashboardFooter guifg=#b3b3b3")
 dashboard.section.buttons.val = {
 	    dashboard.button("n", "╦═> " .. " Nuevo", ":ene <BAR> startinsert <CR>"),
         dashboard.button("f", "╠═> " .. " Buscar ", ":Telescope find_files <CR>"),
@@ -49,5 +45,5 @@ dashboard.section.footer.val = {
 }
 
 alpha.setup(dashboard.opts)
-                                                  
+vim.cmd('colorscheme molokai')
                                                   
