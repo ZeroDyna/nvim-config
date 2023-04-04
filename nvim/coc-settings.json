@@ -1,0 +1,15 @@
+"languageserver": {
+  "clangd": {
+    "command": "clangd",
+    "args": ["--background-index"],
+    "filetypes": ["c", "cpp"],
+    "initializationOptions": {
+      "clangd.path": "clangd",
+      "clangd.arguments": ["--header-insertion=never", "--completion-style=detailed"],
+      "cache": {
+        "directory": "/tmp/coc-clangd"
+      }
+    }
+  }
+}
+
